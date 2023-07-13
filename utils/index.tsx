@@ -1,7 +1,10 @@
-export async function fetchCars(model: string) {
+import { FilterProps } from '@/types';
+
+export async function fetchCars(filters: FilterProps) {
+  const { manufacturer, model } = filters;
   const headers = {};
   const response = await fetch(
-    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=${model}`,
+    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&model=${model}&limit=8`,
     { headers }
   );
   const result = await response.json();

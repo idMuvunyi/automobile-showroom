@@ -1,8 +1,11 @@
-import { CarCard, CustomFilter, LandingPage, SearchBar } from '@/components';
+import { CarCard, LandingPage, SearchBar } from '@/components';
 import { fetchCars } from '@/utils';
 
-export default async function Home() {
-  const allCars = await fetchCars('Corolla');
+export default async function Home({ searchParams }) {
+  const allCars = await fetchCars({
+    manufacturer: searchParams.manufacturer || '',
+    model: searchParams.model || '',
+  });
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
@@ -16,10 +19,6 @@ export default async function Home() {
         </div>
         <div className="home__filters">
           <SearchBar />
-          <div className="home__filter-container">
-            <CustomFilter title="fuel" />
-            <CustomFilter title="year" />
-          </div>
         </div>
         {!isDataEmpty ? (
           <section>
