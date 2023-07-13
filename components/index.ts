@@ -1,7 +1,6 @@
 import CarCard from './CarCard';
 import CarDetails from './CarDetails';
 import CustomButton from './CustomButton';
-import CustomFilter from './CustomFilter';
 import Footer from './Footer';
 import LandingPage from './LandingPage';
 import Navbar from './Navbar';
@@ -14,7 +13,6 @@ export {
   Navbar,
   Footer,
   SearchBar,
-  CustomFilter,
   SearchManufacturer,
   CarCard,
   CarDetails,
