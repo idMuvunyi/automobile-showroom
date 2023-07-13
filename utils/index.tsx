@@ -2,7 +2,10 @@ import { FilterProps } from '@/types';
 
 export async function fetchCars(filters: FilterProps) {
   const { manufacturer, model } = filters;
-  const headers = {};
+  const headers = {
+    'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
+    'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com',
+  };
   const response = await fetch(
     `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&model=${model}&limit=8`,
     { headers }
